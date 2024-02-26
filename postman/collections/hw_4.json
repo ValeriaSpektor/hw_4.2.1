@@ -1,0 +1,844 @@
+{
+	"info": {
+		"_postman_id": "ab958372-298f-46a7-828b-457a1116544a",
+		"name": "hw_4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "30221059-ab958372-298f-46a7-828b-457a1116544a"
+	},
+	"item": [
+		{
+			"name": "Registration",
+			"item": [
+				{
+					"name": "Register new user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ac83b246-3f28-4ce3-b3b3-99ea1f2a6fac",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "735a5e6a-7b19-4229-b8fb-937e5e719777",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbl9hdXRvbWF0aW9uIiwiZXhwIjoxNzA4Njg1MjEyLCJhdXRoIjoiUk9MRV9BRE1JTiIsImlhdCI6MTcwODU5ODgxMn0.HwJ92PsV9V71mKpQvmDON_6B0Qng4jqXM3eqk3f0RinE9EtLLWiVKZcOh-8KdbGaGPl0PYGIxgBeuEX53ojNig"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 0,\n    \"login\": \"user84\",\n    \"firstName\": \"Sofia\",\n    \"lastName\": \"Spektor\",\n    \"email\": \"sofiaspektor22102014@gmail.com\",\n    \"imageUrl\": \"string\",\n    \"activated\": true,\n    \"langKey\": \"en\",\n    \"createdBy\": \"string\",\n    \"createdDate\": \"2024-02-22T12:12:59.374Z\",\n    \"lastModifiedBy\": \"string\",\n    \"lastModifiedDate\": \"2024-02-22T12:12:59.374Z\",\n    \"authorities\": [\n        \"ROLE_STUDENT\"\n    ],\n    \"password\": \"542073\"\n}"
+						},
+						"url": {
+							"raw": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/register",
+							"protocol": "https",
+							"host": [
+								"sqlverifier-live-6e21ca0ed768",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register new user with empty name and last name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cc5353b9-09c6-4c76-93ce-2fa8ea36d917",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "c80e75d2-8f55-48ba-b140-55289909d71a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbl9hdXRvbWF0aW9uIiwiZXhwIjoxNzA4NzkyNDA4LCJhdXRoIjoiUk9MRV9BRE1JTiIsImlhdCI6MTcwODcwNjAwOH0.hm8rWyzSBCDNMVirgQQTai-Yyo4SpfTwkcVF7SzyZ8zTMldAlLxkGGt8JCkkB_nazTwH8G2DgqTl3m6rvi6Obw"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 0,\n  \"login\": \"IvanIv \",\n  \"firstName\": \" \",\n  \"lastName\": \" \",\n  \"email\": \"ivanivanov@gmail.com\",\n  \"imageUrl\": \"string\",\n  \"activated\": true,\n  \"langKey\": \"en\",\n  \"createdBy\": \"string\",\n  \"createdDate\": \"2024-02-22T12:35:27.804Z\",\n  \"lastModifiedBy\": \"string\",\n  \"lastModifiedDate\": \"2024-02-22T12:35:27.804Z\",\n  \"authorities\": [\n    \"ROLE_STUDENT\"\n  ],\n  \"password\": \"string\"\n}"
+						},
+						"url": {
+							"raw": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/register",
+							"protocol": "https",
+							"host": [
+								"sqlverifier-live-6e21ca0ed768",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register new user with existed email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7a4aa8f7-7dc1-4eac-8c64-58b3ac1d7dea",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "f7bd1212-96fe-4c7c-a81b-2aa915d29c42",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbl9hdXRvbWF0aW9uIiwiZXhwIjoxNzA4NzkyNDA4LCJhdXRoIjoiUk9MRV9BRE1JTiIsImlhdCI6MTcwODcwNjAwOH0.hm8rWyzSBCDNMVirgQQTai-Yyo4SpfTwkcVF7SzyZ8zTMldAlLxkGGt8JCkkB_nazTwH8G2DgqTl3m6rvi6Obw"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 0,\n    \"login\": \"User_184\",\n    \"firstName\": \"Valeria\",\n    \"lastName\": \"Spektor\",\n    \"email\": \"vlapin84@gmail.com\",\n    \"imageUrl\": \"string\",\n    \"activated\": true,\n    \"langKey\": \"en\",\n    \"createdBy\": \"string\",\n    \"createdDate\": \"2024-02-22T12:12:59.374Z\",\n    \"lastModifiedBy\": \"string\",\n    \"lastModifiedDate\": \"2024-02-22T12:12:59.374Z\",\n    \"authorities\": [\n        \"ROLE_STUDENT\"\n    ],\n    \"password\": \"542073\"\n}"
+						},
+						"url": {
+							"raw": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/register",
+							"protocol": "https",
+							"host": [
+								"sqlverifier-live-6e21ca0ed768",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "32b1c941-a8ef-476d-8bd8-d50ccddf0e48"
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Create new user with empty login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "422a14b8-8de4-403c-befd-11e979db8e3e",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "47542f73-8ed9-48ec-88d4-22858b92c3ae",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbl9hdXRvbWF0aW9uIiwiZXhwIjoxNzA4NzkyNDA4LCJhdXRoIjoiUk9MRV9BRE1JTiIsImlhdCI6MTcwODcwNjAwOH0.hm8rWyzSBCDNMVirgQQTai-Yyo4SpfTwkcVF7SzyZ8zTMldAlLxkGGt8JCkkB_nazTwH8G2DgqTl3m6rvi6Obw"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 0,\n    \"login\": \" \",\n    \"firstName\": \"Sofia\",\n    \"lastName\": \"Spektor\",\n    \"email\": \"sofiaspektor22@gmail.com\",\n    \"imageUrl\": \"string\",\n    \"activated\": true,\n    \"langKey\": \"en\",\n    \"createdBy\": \"string\",\n    \"createdDate\": \"2024-02-22T12:12:59.374Z\",\n    \"lastModifiedBy\": \"string\",\n    \"lastModifiedDate\": \"2024-02-22T12:12:59.374Z\",\n    \"authorities\": [\n        \"ROLE_STUDENT\"\n    ],\n    \"password\": \"542073\"\n}"
+						},
+						"url": {
+							"raw": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/register",
+							"protocol": "https",
+							"host": [
+								"sqlverifier-live-6e21ca0ed768",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new user with login consisting of digits",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ce6208fe-763a-472a-a162-3f82cfe008cd",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "7afceceb-f505-44f4-81b1-9fc48df14ca1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbl9hdXRvbWF0aW9uIiwiZXhwIjoxNzA4NzkyNDA4LCJhdXRoIjoiUk9MRV9BRE1JTiIsImlhdCI6MTcwODcwNjAwOH0.hm8rWyzSBCDNMVirgQQTai-Yyo4SpfTwkcVF7SzyZ8zTMldAlLxkGGt8JCkkB_nazTwH8G2DgqTl3m6rvi6Obw"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "curl -X 'POST' \\\n  'https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/register' \\\n  -H 'accept: */*' \\\n  -H 'Content-Type: application/json' \\\n  -H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbl9hdXRvbWF0aW9uIiwiZXhwIjoxNzA4NzkyNDA4LCJhdXRoIjoiUk9MRV9BRE1JTiIsImlhdCI6MTcwODcwNjAwOH0.hm8rWyzSBCDNMVirgQQTai-Yyo4SpfTwkcVF7SzyZ8zTMldAlLxkGGt8JCkkB_nazTwH8G2DgqTl3m6rvi6Obw' \\\n  -d '{\n    \"id\": 0,\n    \"login\": \"12345 \",\n    \"firstName\": \"Sofia\",\n    \"lastName\": \"Spektor\",\n    \"email\": \"sofiaspektor212@gmail.com\",\n    \"imageUrl\": \"string\",\n    \"activated\": true,\n    \"langKey\": \"en\",\n    \"createdBy\": \"string\",\n    \"createdDate\": \"2024-02-22T12:12:59.374Z\",\n    \"lastModifiedBy\": \"string\",\n    \"lastModifiedDate\": \"2024-02-22T12:12:59.374Z\",\n    \"authorities\": [\n        \"ROLE_STUDENT\"\n    ],\n    \"password\": \"542073\"\n}'"
+						},
+						"url": {
+							"raw": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/register",
+							"protocol": "https",
+							"host": [
+								"sqlverifier-live-6e21ca0ed768",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User registration with login length more than 50 letters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a7651339-16b4-4a4d-99c9-36f1a457fe2f",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "40f7e25b-2dc7-46bf-9359-667ab93f876e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbl9hdXRvbWF0aW9uIiwiZXhwIjoxNzA4NzkyNDA4LCJhdXRoIjoiUk9MRV9BRE1JTiIsImlhdCI6MTcwODcwNjAwOH0.hm8rWyzSBCDNMVirgQQTai-Yyo4SpfTwkcVF7SzyZ8zTMldAlLxkGGt8JCkkB_nazTwH8G2DgqTl3m6rvi6Obw"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 0,\n    \"login\": \"SofiaSofiaSofiaSofiaSofiaSofiaSofiaSofiaSofiaSofiaS \",\n    \"firstName\": \"Sofia\",\n    \"lastName\": \"Spektor\",\n    \"email\": \"sofiaspektor212@gmail.com\",\n    \"imageUrl\": \"string\",\n    \"activated\": true,\n    \"langKey\": \"en\",\n    \"createdBy\": \"string\",\n    \"createdDate\": \"2024-02-22T12:12:59.374Z\",\n    \"lastModifiedBy\": \"string\",\n    \"lastModifiedDate\": \"2024-02-22T12:12:59.374Z\",\n    \"authorities\": [\n        \"ROLE_STUDENT\"\n    ],\n    \"password\": \"542073\"\n}"
+						},
+						"url": {
+							"raw": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/register",
+							"protocol": "https",
+							"host": [
+								"sqlverifier-live-6e21ca0ed768",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Receiving information about Log in user84",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1fb57aba-1912-4c82-ab75-5639f243ef12",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "1bff1449-e145-4703-b97c-146666395992",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbl9hdXRvbWF0aW9uIiwiZXhwIjoxNzA4Nzk3NTc4LCJhdXRoIjoiUk9MRV9BRE1JTiIsImlhdCI6MTcwODcxMTE3OH0.qgrEVwB9uV3yV4f8s8qizfvjV7Qu9cJYxLywwYAI6lv73lhnlY0IKr0G0osUGwfV7iXyEGLTO_gsGznVlXva9A"
+							}
+						],
+						"url": {
+							"raw": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/admin/users/user84",
+							"protocol": "https",
+							"host": [
+								"sqlverifier-live-6e21ca0ed768",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"admin",
+								"users",
+								"user84"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Receiving information about Log in user_184",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1b71d933-1a70-4a68-96ef-993afc64e916",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "190e6026-ae6a-4e91-bad2-aee440ffd0b2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbl9hdXRvbWF0aW9uIiwiZXhwIjoxNzA4Nzk3NTc4LCJhdXRoIjoiUk9MRV9BRE1JTiIsImlhdCI6MTcwODcxMTE3OH0.qgrEVwB9uV3yV4f8s8qizfvjV7Qu9cJYxLywwYAI6lv73lhnlY0IKr0G0osUGwfV7iXyEGLTO_gsGznVlXva9A"
+							}
+						],
+						"url": {
+							"raw": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/admin/users/User_184",
+							"protocol": "https",
+							"host": [
+								"sqlverifier-live-6e21ca0ed768",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"admin",
+								"users",
+								"User_184"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updating email information about Log in user84",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "214a809e-6ab5-4f3d-a35d-15b4d90e1439",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "6cafa5ea-4141-4bad-aa02-063f84e0a538",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbl9hdXRvbWF0aW9uIiwiZXhwIjoxNzA4Nzk3NTc4LCJhdXRoIjoiUk9MRV9BRE1JTiIsImlhdCI6MTcwODcxMTE3OH0.qgrEVwB9uV3yV4f8s8qizfvjV7Qu9cJYxLywwYAI6lv73lhnlY0IKr0G0osUGwfV7iXyEGLTO_gsGznVlXva9A"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 0,\n    \"login\": \"user84\",\n    \"firstName\": \"Sofia\",\n    \"lastName\": \"Spektor\",\n    \"email\": \"sofiaspektor22102014@gmail.com\",\n    \"imageUrl\": \"string\",\n    \"activated\": true,\n    \"langKey\": \"en\",\n    \"createdBy\": \"string\",\n    \"createdDate\": \"2024-02-22T12:12:59.374Z\",\n    \"lastModifiedBy\": \"string\",\n    \"lastModifiedDate\": \"2024-02-22T12:12:59.374Z\",\n    \"authorities\": [\n        \"ROLE_STUDENT\"\n    ],\n    \"password\": \"542073vl\"\n}"
+						},
+						"url": {
+							"raw": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/admin/users",
+							"protocol": "https",
+							"host": [
+								"sqlverifier-live-6e21ca0ed768",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"admin",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updating email information about Log in user84 Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "88a2176e-d6a1-44ec-9fe5-d1a8eb918890",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "8ad89dfe-b274-486f-9199-0780e3c0c3bc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbl9hdXRvbWF0aW9uIiwiZXhwIjoxNzA4Nzk3NTc4LCJhdXRoIjoiUk9MRV9BRE1JTiIsImlhdCI6MTcwODcxMTE3OH0.qgrEVwB9uV3yV4f8s8qizfvjV7Qu9cJYxLywwYAI6lv73lhnlY0IKr0G0osUGwfV7iXyEGLTO_gsGznVlXva9A"
+							}
+						],
+						"url": {
+							"raw": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/admin/users/sofiasofiasofiasofiasofiasofiasofiasofiasofiasofia%09",
+							"protocol": "https",
+							"host": [
+								"sqlverifier-live-6e21ca0ed768",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"admin",
+								"users",
+								"sofiasofiasofiasofiasofiasofiasofiasofiasofiasofia%09"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "b3ad437a-cbc0-4c7e-b35e-e078280f8e71"
+		},
+		{
+			"name": "Task-test",
+			"item": [
+				{
+					"name": "Authenticate user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ca56590f-66bd-425d-bffb-4658a9441f2c",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "f119150d-ea90-4f80-adeb-86fac7c7efc7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbl9hdXRvbWF0aW9uIiwiZXhwIjoxNzA5MDMwNTI0LCJhdXRoIjoiUk9MRV9BRE1JTiIsImlhdCI6MTcwODk0NDEyNH0.SM8sNYNHVho-mHTQYK8wAUdNevyMNA5b1T9_Rno-XEj2JnPAsg2jpmrLTGjLnDzlEfAjHgFAOGhZwZw84NNSTw"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"user84\",\n  \"password\": \"542073\",\n  \"rememberMe\": true\n}"
+						},
+						"url": {
+							"raw": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/authenticate",
+							"protocol": "https",
+							"host": [
+								"sqlverifier-live-6e21ca0ed768",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user task",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "885fbbff-d976-4f3b-acb8-3bff9a899330",
+								"exec": [
+									"pm.environment.set(\"task_id\", pm.response.json().task.id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "11e8e62d-b1f3-4383-8b09-249a4d1c3680",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyXzE5ODQiLCJleHAiOjE3MDkwMjYyMzcsImF1dGgiOiJST0xFX1VTRVJfU1RVREVOVCIsImlhdCI6MTcwODkzOTgzN30.505Tyesn8LAH1iEBp3xcwwdyRO6Q-tN1pprgNTQWtOcdnLoefCh5jIakz5Y3iKHhnHW8nKL7Jaub0qB-Ue-RBg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"isSolved\": false,\n    \"user\": {\n        \"id\": 1502,\n        \"login\": \"new_student\"\n    },\n    \"task\": {\n        \"id\": 57353,\n        \"text\": \"task\",\n        \"answer\": \"test\",\n        \"title\": \"test\"\n    }\n}'"
+						},
+						"url": {
+							"raw": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/user-tasks",
+							"protocol": "https",
+							"host": [
+								"sqlverifier-live-6e21ca0ed768",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"user-tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user task",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "17b998b0-2a42-44c1-8304-dbc555cef2f6",
+								"exec": [
+									"pm.sendRequest(\r",
+									"\r",
+									"{url:\"https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/user-tasks/59303\",\r",
+									"header: {\r",
+									"   \"Authorization\": \"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyXzE5ODQiLCJleHAiOjE3MDkwMjY5NjYsImF1dGgiOiJST0xFX1VTRVJfU1RVREVOVCIsImlhdCI6MTcwODk0MDU2Nn0.ehHfW0Imr0-70dcnhqxr8JtBmM9mSxz-DEBuu18r6J-u0iLDlcjwqfkZ9oOXTPkSoYVeEmTTTBe_k8AcNfmjkg\"\r",
+									"}}, \r",
+									"function (err, response) {\r",
+									"    pm.test(\"Task deleted\", function () {\r",
+									"        var jsonData = pm.response.json();\r",
+									"        pm.expect(jsonData.status).to.eql(\"Not found\");\r",
+									"    });\r",
+									"\r",
+									"    console.log(response.json());\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "8a6c0d37-480a-465f-8da5-f6e38667261c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyXzE5ODQiLCJleHAiOjE3MDkwMjY5NjYsImF1dGgiOiJST0xFX1VTRVJfU1RVREVOVCIsImlhdCI6MTcwODk0MDU2Nn0.ehHfW0Imr0-70dcnhqxr8JtBmM9mSxz-DEBuu18r6J-u0iLDlcjwqfkZ9oOXTPkSoYVeEmTTTBe_k8AcNfmjkg"
+							}
+						],
+						"url": {
+							"raw": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/user-tasks/59303",
+							"protocol": "https",
+							"host": [
+								"sqlverifier-live-6e21ca0ed768",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"user-tasks",
+								"59303"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user task without title",
+					"id": "15de51cc-2987-48df-b29c-4f6ea7816acc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyXzE5ODQiLCJleHAiOjE3MDg5NDI2MjgsImF1dGgiOiJST0xFX1VTRVJfU1RVREVOVCIsImlhdCI6MTcwODg1NjIyOH0.0CSQFzN3NQrgWGjlS3gWvkHdWw5mwV93j6Aiu-3TWr1IxQWwd5mAN_JBrQb1S3j2CdqL6M2s9Q487ZBb2v_Avg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 59302,\n  \"isSolved\": false,\n  \"user\": {\n    \"createdBy\": null,\n    \"createdDate\": \"2024-02-25T10:18:25.065671960Z\",\n    \"lastModifiedBy\": null,\n    \"lastModifiedDate\": \"2024-02-25T10:18:25.065672191Z\",\n    \"id\": 1502,\n    \"login\": \"new_student\",\n    \"firstName\": null,\n    \"lastName\": null,\n    \"email\": null,\n    \"activated\": false,\n    \"langKey\": null,\n    \"imageUrl\": null,\n    \"resetDate\": null\n  },\n  \"task\": {\n    \"id\": 57353,\n    \"text\": \"\",\n    \"answer\": \"test\",\n    \"title\": \" \"\n  }\n}"
+						},
+						"url": {
+							"raw": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/user-tasks/58857",
+							"protocol": "https",
+							"host": [
+								"sqlverifier-live-6e21ca0ed768",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"user-tasks",
+								"58857"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updated task",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0b81cda1-2f70-4657-983a-69eaa4627984",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "a4ab4f38-7f5b-41bc-a6ea-d594a6e69dcd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbl9hdXRvbWF0aW9uIiwiZXhwIjoxNzA4OTQ5MDAzLCJhdXRoIjoiUk9MRV9BRE1JTiIsImlhdCI6MTcwODg2MjYwM30.0LZ8_LIMilaHhAbeWu2_4OEeBxagxcE5GcO5pKcCLUxNeYJJ5i2-AnsieQfccIFaX96HFgB0VpXefxkcMJO5Mg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 59306,\n    \"isSolved\": false,\n    \"user\": {\n        \"createdBy\": null,\n        \"createdDate\": \"2024-02-25T12:01:15.689415281Z\",\n        \"lastModifiedBy\": null,\n        \"lastModifiedDate\": \"2024-02-25T12:01:15.689415402Z\",\n        \"id\": 1502,\n        \"login\": \"new_student\",\n        \"firstName\": null,\n        \"lastName\": null,\n        \"email\": null,\n        \"activated\": false,\n        \"langKey\": null,\n        \"imageUrl\": null,\n        \"resetDate\": null\n    },\n    \"task\": {\n        \"id\": 57353,\n        \"text\": \"updated task\",\n        \"answer\": \"test\",\n        \"title\": \"test\"\n    }\n}"
+						},
+						"url": {
+							"raw": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/user-tasks/59306",
+							"protocol": "https",
+							"host": [
+								"sqlverifier-live-6e21ca0ed768",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"user-tasks",
+								"59306"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "8da6d2f8-6abe-4e5d-898f-3a3fff052691"
+		}
+	],
+	"variable": [
+		{
+			"id": "dbb95cb9-e3d2-499f-bba2-449c454e172a",
+			"key": "task_id",
+			"value": "task"
+		}
+	]
+}
